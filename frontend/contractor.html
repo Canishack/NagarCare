@@ -107,11 +107,11 @@
       <input type="text" id="searchName" placeholder="Search contractor by name...">
       <select id="areaFilter">
         <option value="All">All Areas</option>
-        <option value="Kanpur">Kanpur</option>
-        <option value="Lucknow">Lucknow</option>
-        <option value="Delhi">Delhi</option>
-        <option value="Jaipur">Jaipur</option>
-        <option value="Agra">Agra</option>
+        <option value="Panki">Panki</option>
+        <option value="Arya_nagar">Arya_nagar</option>
+        <option value="SwaroopNagar">SwaroopNagar</option>
+        <option value="Kakadeo">Kakadeo</option>
+        <option value="Jajmau">Jajmau</option>
       </select>
     </div>
 
@@ -121,41 +121,46 @@
           <th>Contractor Name</th>
           <th>Contact Number</th>
           <th>Area</th>
+          <th>Category</th>
         </tr>
       </thead>
       <tbody>
-        <!-- Empty initially -->
+        <!-- Filled dynamically -->
       </tbody>
     </table>
   </div>
 
   <script>
     const contractors = [
-      { name: "Ankit Verma", phone: "9811111111", area: "Kanpur" },
-      { name: "Rajeev Shukla", phone: "9811111112", area: "Kanpur" },
-      { name: "Neeraj Gupta", phone: "9811111113", area: "Kanpur" },
-      { name: "Manish Tiwari", phone: "9811111114", area: "Kanpur" },
-      { name: "Kiran Yadav", phone: "9811111115", area: "Kanpur" },
-      { name: "Shivam Singh", phone: "9822222221", area: "Lucknow" },
-      { name: "Pooja Srivastava", phone: "9822222222", area: "Lucknow" },
-      { name: "Aman Pandey", phone: "9822222223", area: "Lucknow" },
-      { name: "Ritika Sharma", phone: "9822222224", area: "Lucknow" },
-      { name: "Vikas Dubey", phone: "9822222225", area: "Lucknow" },
-      { name: "Rohit Malhotra", phone: "9833333331", area: "Delhi" },
-      { name: "Meena Kapoor", phone: "9833333332", area: "Delhi" },
-      { name: "Harsh Bhalla", phone: "9833333333", area: "Delhi" },
-      { name: "Divya Arora", phone: "9833333334", area: "Delhi" },
-      { name: "Anjali Mehra", phone: "9833333335", area: "Delhi" },
-      { name: "Suresh Rathore", phone: "9844444441", area: "Jaipur" },
-      { name: "Mahesh Choudhary", phone: "9844444442", area: "Jaipur" },
-      { name: "Kavita Singh", phone: "9844444443", area: "Jaipur" },
-      { name: "Ramesh Yadav", phone: "9844444444", area: "Jaipur" },
-      { name: "Sneha Jain", phone: "9844444445", area: "Jaipur" },
-      { name: "Deepak Gupta", phone: "9855555551", area: "Agra" },
-      { name: "Sonal Agrawal", phone: "9855555552", area: "Agra" },
-      { name: "Vivek Bansal", phone: "9855555553", area: "Agra" },
-      { name: "Rekha Sharma", phone: "9855555554", area: "Agra" },
-      { name: "Yash Chauhan", phone: "9855555555", area: "Agra" }
+      { name: "Ravi Singh", phone: "9811110001", area: "Panki", category: "Mason", city: "Kanpur" },
+      { name: "Amit Kumar", phone: "9811110002", area: "Panki", category: "Electrician", city: "Kanpur" },
+      { name: "Manoj Verma", phone: "9811110003", area: "Panki", category: "Plumber", city: "Kanpur" },
+      { name: "Sanjay Yadav", phone: "9811110004", area: "Panki", category: "Labour", city: "Kanpur" },
+      { name: "Rohit Mishra", phone: "9811110005", area: "Panki", category: "Mason", city: "Kanpur" },
+
+      { name: "Ankit Sharma", phone: "9811110011", area: "Arya_nagar", category: "Electrician", city: "Kanpur" },
+      { name: "Deepak Gupta", phone: "9811110012", area: "Arya_nagar", category: "Plumber", city: "Kanpur" },
+      { name: "Vikas Singh", phone: "9811110013", area: "Arya_nagar", category: "Mason", city: "Kanpur" },
+      { name: "Sunil Kumar", phone: "9811110014", area: "Arya_nagar", category: "Labour", city: "Kanpur" },
+      { name: "Ajay Tiwari", phone: "9811110015", area: "Arya_nagar", category: "Electrician", city: "Kanpur" },
+
+      { name: "Gaurav Chauhan", phone: "9811110021", area: "SwaroopNagar", category: "Labour", city: "Kanpur" },
+      { name: "Suresh Patel", phone: "9811110022", area: "SwaroopNagar", category: "Plumber", city: "Kanpur" },
+      { name: "Naresh Tripathi", phone: "9811110023", area: "SwaroopNagar", category: "Mason", city: "Kanpur" },
+      { name: "Akhil Pandey", phone: "9811110024", area: "SwaroopNagar", category: "Electrician", city: "Kanpur" },
+      { name: "Naveen Rathi", phone: "9811110025", area: "SwaroopNagar", category: "Labour", city: "Kanpur" },
+
+      { name: "Harish Rawat", phone: "9811110031", area: "Kakadeo", category: "Electrician", city: "Kanpur" },
+      { name: "Sandeep Singh", phone: "9811110032", area: "Kakadeo", category: "Mason", city: "Kanpur" },
+      { name: "Ranjit Kumar", phone: "9811110033", area: "Kakadeo", category: "Plumber", city: "Kanpur" },
+      { name: "Mahesh Chauhan", phone: "9811110034", area: "Kakadeo", category: "Labour", city: "Kanpur" },
+      { name: "Yash Vardhan", phone: "9811110035", area: "Kakadeo", category: "Electrician", city: "Kanpur" },
+
+      { name: "Ramesh Verma", phone: "9811110041", area: "Jajmau", category: "Plumber", city: "Kanpur" },
+      { name: "Tarun Singh", phone: "9811110042", area: "Jajmau", category: "Mason", city: "Kanpur" },
+      { name: "Vijay Shukla", phone: "9811110043", area: "Jajmau", category: "Electrician", city: "Kanpur" },
+      { name: "Pradeep Maurya", phone: "9811110044", area: "Jajmau", category: "Labour", city: "Kanpur" },
+      { name: "Rajesh Yadav", phone: "9811110045", area: "Jajmau", category: "Mason", city: "Kanpur" }
     ];
 
     const searchInput = document.getElementById('searchName');
@@ -165,30 +170,21 @@
     function filterTable() {
       const nameQuery = searchInput.value.toLowerCase();
       const selectedArea = areaFilter.value;
-
       tbody.innerHTML = '';
-
-      if (selectedArea === 'All') return;
-
       const filtered = contractors.filter(c =>
-        c.name.toLowerCase().includes(nameQuery) &&
-        c.area === selectedArea
+        (selectedArea === 'All' || c.area === selectedArea) &&
+        c.name.toLowerCase().includes(nameQuery)
       );
-
       tbody.innerHTML = filtered.map(c => `
         <tr>
           <td>${c.name}</td>
           <td>${c.phone}</td>
           <td>${c.area}</td>
-        </tr>
-      `).join('');
+          <td>${c.category}</td>
+        </tr>`).join('');
     }
 
-    areaFilter.addEventListener('change', () => {
-      searchInput.value = '';
-      filterTable();
-    });
-
+    areaFilter.addEventListener('change', filterTable);
     searchInput.addEventListener('input', filterTable);
 
     function fetchLocation() {
@@ -204,29 +200,47 @@
           const lon = position.coords.longitude;
 
           try {
-            const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`);
+            const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=18&addressdetails=1`);
             const data = await response.json();
-            const area = data.address.suburb || data.address.city || data.address.town || "";
+            const address = data.address;
+            const rawArea = address.neighbourhood || address.suburb || address.village || address.locality || address.town || address.city || "";
+            const normalizedArea = rawArea.trim().toLowerCase();
+            locationInput.value = rawArea || "Area not found";
 
-            locationInput.value = area || "Area not found";
+            const matched = contractors.filter(c =>
+              c.city.toLowerCase() === "kanpur" &&
+              normalizedArea.includes(c.area.toLowerCase())
+            );
 
-            const matched = contractors.filter(c => area.toLowerCase().includes(c.area.toLowerCase()));
             if (matched.length) {
-              resultDiv.innerHTML = `<strong>Contractors in ${area}</strong>`;
+              resultDiv.innerHTML = `<strong>Contractors in ${rawArea}</strong>`;
               tbody.innerHTML = matched.map(c => `
                 <tr>
                   <td>${c.name}</td>
                   <td>${c.phone}</td>
                   <td>${c.area}</td>
-                </tr>`).join('');
+                  <td>${c.category}</td>
+                </tr>
+              `).join('');
             } else {
-              resultDiv.innerHTML = "<p>No contractor found for this area.</p>";
+              const fallback = contractors.filter(c => c.city.toLowerCase() === "kanpur");
+              resultDiv.innerHTML = `<p>No exact area match. Showing all Kanpur contractors instead.</p>`;
+              tbody.innerHTML = fallback.map(c => `
+                <tr>
+                  <td>${c.name}</td>
+                  <td>${c.phone}</td>
+                  <td>${c.area}</td>
+                  <td>${c.category}</td>
+                </tr>
+              `).join('');
             }
 
           } catch (err) {
+            console.error("Fetch error:", err);
             locationInput.value = "Error fetching location";
           }
         }, function (error) {
+          console.error("Geolocation error:", error);
           locationInput.value = "Permission denied or error";
         });
       } else {
